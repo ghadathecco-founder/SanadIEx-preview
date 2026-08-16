@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple-950: #2d1b4e;
+  --purple-800: #4c2a7a;
+  --purple-600: #6b3fa0;
+  --purple-400: #9b6dd4;
+  --cream-50: #fbf7f0;
+  --cream-100: #f4ede0;
+  --sand-300: #d4c4a8;
+  --sand-500: #c4a37a;
+  --ink: #1a1228;
+  --muted: #6b5e73;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--cream-50);
+  color: var(--ink);
+  font-feature-settings: "ss01" on, "kern" on;
+}
+
+.ltr-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .si-card {
+    @apply rounded-xl bg-white shadow-card;
+    box-shadow: 0 1px 0 0 rgba(45, 27, 78, 0.04),
+      0 8px 24px -12px rgba(45, 27, 78, 0.18);
+    border: 1px solid rgba(212, 196, 168, 0.55);
+  }
+
+  .si-chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .si-live-dot {
+    @apply relative inline-flex h-2 w-2;
+  }
+
+  .si-live-dot::before {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-purple-400 opacity-60;
+    animation: si-pulse 1.8s ease-out infinite;
+  }
+
+  .si-live-dot::after {
+    content: "";
+    @apply absolute inset-0.5 rounded-full bg-purple-600;
+  }
+}
+
+@keyframes si-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.si-grid-bg {
+  background-image: linear-gradient(
+      to left,
+      rgba(45, 27, 78, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(45, 27, 78, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sand-300);
+  border-radius: 999px;
+}
