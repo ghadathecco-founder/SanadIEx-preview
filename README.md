@@ -1,2 +1,5 @@
-# SanadIEx-preview
-Live preview of SanadIEx Module 1 Super Admin (Real Deal)
+# SanadIEx M1 preview
+
+Public live preview of Module 1 Super Admin, bound to SanadIEx Real Deal.
+
+Login: https://ghadathecco-founder.github.io/SanadIEx-preview/login
